@@ -3,7 +3,9 @@
  
 ## Preview
 <p float="left">
-<img src="/Images/Login.png?raw=true">
+<p> Connect your whatsapp web. </p>
+<img src="/Images/login.png?raw=true">
+<p> Wait for the messages to synchronize, after that the last message from the user will be read and a response will be returned. </p>
 <img src="/Images/example.png?raw=true">
 </p>
 ## Getting Started
