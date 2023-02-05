@@ -3,8 +3,8 @@
  
 ## Preview
 <p float="left">
-<img src="/images/Login.png?raw=true">
-<img src="/images/example.png?raw=true">
+<img src="/Images/Login.png?raw=true">
+<img src="/Images/example.png?raw=true">
 </p>
 ## Getting Started
     To get started with the Whatsapp Bot, you will need to clone this repository and have Python 3 installed on your system.
