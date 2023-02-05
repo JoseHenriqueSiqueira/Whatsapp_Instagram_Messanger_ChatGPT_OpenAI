@@ -8,6 +8,7 @@
 <p> Wait for the messages to synchronize, after that the last message from the user will be read and a response will be returned. </p>
 <img src="/Images/example.png?raw=true">
 </p>
+
 ## Getting Started
     To get started with the Whatsapp Bot, you will need to clone this repository and have Python 3 installed on your system.
 
