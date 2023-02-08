@@ -35,22 +35,25 @@ class WhatsAppBot:
             elements = self.driver.find_elements(By.XPATH, f"//span[@data-testid='conversation-info-header-chat-title']") # Encontra o elemento que contem o nome da pessoa
             Name = f"{elements[0].text}:" # Extrai o nome da pessoa
             divs = self.driver.find_elements(By.XPATH, f"//div[contains(@data-pre-plain-text, '{Name}')]") # Pegando os divs responsáveis por conter as mensagens do usuário
-            last_parent = divs[-1] # Obtendo o div mais recente
-            child_elements = last_parent.find_elements(By.XPATH, "./*[not(contains(@class, '_1hl2r'))]") # Obtendo os elementos filhos do Div
-            last_child = child_elements[-1] # Obtendo elemento mais recente
-            text = last_child.text.replace("\n","") # Extraindo o texto do elemento mais recente (Mensagem mais recente do usuário)
-            if text in self.messages: # Verifica se o texto esta na lista self.menssages
-                resposta = self.Conversa.Question(text) # Manda a última mensagem do usuário para o método "Question" da classe "ChatBot"
-                if resposta: # Verifica o método 'Question' retornou uma resposta
-                    time.sleep(2) # Aguarda 2 segundos, tornando o script mais humano
-                    elemento = self.driver.find_element(By.XPATH, f'//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p') # Obtendo elemento responsável por mandar as mensagens
-                    elemento.clear() # Limpa a mensagem (Pratica comum para evitar mensagens não intencionais)
-                    elemento.send_keys(resposta) # Escreve a mensagem no elemento
-                    time.sleep(1) # Aguarda mais 1 segundo
-                    elemento.send_keys(Keys.ENTER) # Manda a mensagem
-                continue # Verificação das mensagens recomeçando
+            if divs:
+                last_parent = divs[-1] # Obtendo o div mais recente
+                child_elements = last_parent.find_elements(By.XPATH, "./*[not(contains(@class, '_1hl2r'))]") # Obtendo os elementos filhos do Div
+                last_child = child_elements[-1] # Obtendo elemento mais recente
+                text = last_child.text.replace("\n","") # Extraindo o texto do elemento mais recente (Mensagem mais recente do usuário)
+                if text in self.messages: # Verifica se o texto esta na lista self.menssages
+                    resposta = self.Conversa.Question(text) # Manda a última mensagem do usuário para o método "Question" da classe "ChatBot"
+                    if resposta: # Verifica o método 'Question' retornou uma resposta
+                        time.sleep(2) # Aguarda 2 segundos, tornando o script mais humano
+                        elemento = self.driver.find_element(By.XPATH, f'//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p') # Obtendo elemento responsável por mandar as mensagens
+                        elemento.clear() # Limpa a mensagem (Pratica comum para evitar mensagens não intencionais)
+                        elemento.send_keys(resposta) # Escreve a mensagem no elemento
+                        time.sleep(1) # Aguarda mais 1 segundo
+                        elemento.send_keys(Keys.ENTER) # Manda a mensagem
+                    continue # Verificação das mensagens recomeçando
+                else:
+                    self.messages.append(text) # Adiciona a ultima mensagem na lista self.messages
             else:
-                self.messages.append(text) # Adiciona a ultima mensagem na lista self.messages
+                print("Não há mensagens do usuário.")
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
