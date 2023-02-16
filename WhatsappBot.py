@@ -7,7 +7,7 @@ from subprocess import CREATE_NO_WINDOW
 from ChatBot import ChatBot
 import time, sys
 
-class WhatsAppBot:
+class WhatsAppBotGPT:
     def __init__(self, Number:str, chatbot):
         self.numero = Number
         self.service = Service(ChromeDriverManager().install())
@@ -61,7 +61,7 @@ if __name__ == "__main__":
     phone_number = sys.argv[1]  # Obtém o número de telefone do destinatário da linha de comando
     Api_key = sys.argv[2] # Obtém a API KEY da linha de comando
     Chatbot = ChatBot(API_KEY=Api_key)
-    WhatsappBot = WhatsAppBot(Number=phone_number, chatbot=Chatbot)
+    WhatsappBot = WhatsAppBotGPT(Number=phone_number, chatbot=Chatbot)
     WhatsappBot.run()
 
 

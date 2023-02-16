@@ -1,7 +1,9 @@
-# WhatsApp ChatBot using OpenAI API
- This repository showcases a ChatBot integrated with WhatsApp, using OpenAI API (such as ChatGPT). With it, you can interact with a highly trained language model to answer your questions and perform specific tasks quickly and efficiently. Don't miss the opportunity to experience cutting-edge AI technology directly on your WhatsApp.
+# WhatsApp and Instagram ChatBot using OpenAI API
+ This repository showcases a ChatBot integrated with WhatsApp and Instagram, using OpenAI API (such as ChatGPT). With it, you can interact with a highly trained language model to answer your questions and perform specific tasks quickly and efficiently. Don't miss the opportunity to experience cutting-edge AI technology directly on your WhatsApp or Instagram.
  
 ## Preview
+
+### WhatsApp
 <p float="left">
 <p> Connect your whatsapp web. </p>
 <img src="/Images/Login.png?raw=true">
@@ -9,8 +11,17 @@
 <img src="/Images/example.png?raw=true">
 </p>
 
+### Instagram
+
+<p float="left">
+<p> Instagram Login </p>
+<img src="/Images/InstagramLogin.png?raw=true">
+<p> Bot working </p>
+<img src="/Images/Instaexample.png?raw=true">
+</p>
+
 ## Getting Started
-    To get started with the Whatsapp Bot, you will need to clone this repository and have Python 3 installed on your system.
+    To get started with the Whatsapp Bot and Instagram, you will need to clone this repository and have Python 3 installed on your system.
 
 ### Prerequisites
     To run this project, you will need to have the following dependencies installed:
@@ -32,13 +43,25 @@ To run the WhatsappBot, navigate to the cloned repository and run the following 
 ```console
  $ python WhatsappBot.py <phone_number> <api_key>
 ```
+
 Where <phone_number> is the target phone number and <api_key> is your OpenAI API key.
+
+### Running the InstagramBot
+To run the InstagramBot, navigate to the cloned repository and run the following command:
+```console
+ $ python InstagramBot.py <user> <api_key>
+```
+
+Where <user> is the user target and <api_key> is your OpenAI API key.
 
 ## ChatBot Class
     The ChatBot class handles the connection with the OpenAI API and is responsible for sending and receiving messages.
 
 ## WhatsappBot Class
     The WhatsappBot class handles the interaction with Whatsapp and uses the ChatBot class to communicate with the OpenAI API.
+
+## InstagramBot Class
+    The InstagramBot class handles the interaction with Instagram and uses the ChatBot class to communicate with the OpenAI API.
 
 ## Built With
   [Python 3.9.X](https://www.python.org/downloads/) - The programming language used <br/>
