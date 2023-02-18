@@ -66,7 +66,7 @@ Where <user> is the user target and <api_key> is your OpenAI API key.
 ### Running the MessengerBot
 To run the MessengerBot, navigate to the cloned repository and run the following command:
 ```console
- $ python InstagramBot.py <user> <api_key>
+ $ python MessengerBot.py <user> <api_key>
 ```
 
 Where <user> is the user target and <api_key> is your OpenAI API key.
