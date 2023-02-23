@@ -71,17 +71,11 @@ To run the MessengerBot, navigate to the cloned repository and run the following
 
 Where <user> is the user target and <api_key> is your OpenAI API key.
 
-## ChatBot Class
-    The ChatBot class handles the connection with the OpenAI API and is responsible for sending and receiving messages.
-
-## WhatsAppBotGPT Class
-    The WhatsAppBotGPT class handles the interaction with Whatsapp and uses the ChatBot class to communicate with the OpenAI API.
-
-## InstagramBotGPT Class
-    The InstagramBotGPT class handles the interaction with Instagram and uses the ChatBot class to communicate with the OpenAI API.
-
-## MessengerBotGPT Class
-    The MessengerBotGPT class handles the interaction with Messenger and uses the ChatBot class to communicate with the OpenAI API.
+## Documentation
+- [WhatsappBot.py](/Docs/WhatsappBotDOC.md)
+- [InstagramBot.py](/Docs/InstagramBotDOC.md)
+- [MessengerBot.py](/Docs/MessengerBotDOC.md)
+- [ChatBot.py](/Docs/ChatBotDOC.md)
 
 ## Built With
   [Python 3.9.X](https://www.python.org/downloads/) - The programming language used <br/>

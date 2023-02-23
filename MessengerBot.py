@@ -47,12 +47,12 @@ class MessengerBotGPT:
             raise ValueError("UserType must be an str")
         if UserType not in Types.keys():
             raise Exception("Invalid parameter, use 'author' or 'user'")    
-        Dados = []
         UserType = Types.get(UserType)
+        self.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, UserType)))
         messages_element = self.driver.find_elements(By.CSS_SELECTOR, UserType)
-        for element in messages_element:
-            Dados.append(element.text)
-        return Dados
+        dados = [element.text for element in messages_element]
+        return dados
+
 
 
 if __name__ == "__main__":
