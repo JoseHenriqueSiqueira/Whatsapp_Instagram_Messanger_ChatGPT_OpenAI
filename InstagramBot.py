@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
-#from subprocess import CREATE_NO_WINDOW
+from subprocess import CREATE_NO_WINDOW
 from ChatBot import ChatBot
 import sys
 
@@ -13,7 +13,7 @@ class InstagramBotGPT:
     def __init__(self, user:str, chatbot):
         self.BotGPT = chatbot
         self.service = Service(ChromeDriverManager().install())
-        #self.service.creationflags = CREATE_NO_WINDOW
+        self.service.creationflags = CREATE_NO_WINDOW
         self.driver = webdriver.Chrome(service=self.service)
         self.driver.get(f"https://ig.me/m/{user}")
         while len(self.driver.find_elements(By.CLASS_NAME, "_a9--._a9_1")) < 1:
