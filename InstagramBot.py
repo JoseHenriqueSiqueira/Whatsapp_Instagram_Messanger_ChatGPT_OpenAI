@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
-from subprocess import CREATE_NO_WINDOW
+#from subprocess import CREATE_NO_WINDOW
 from ChatBot import ChatBot
 import sys
 
@@ -13,16 +13,16 @@ class InstagramBotGPT:
     def __init__(self, user:str, chatbot):
         self.BotGPT = chatbot
         self.service = Service(ChromeDriverManager().install())
-        self.service.creationflags = CREATE_NO_WINDOW
+        #self.service.creationflags = CREATE_NO_WINDOW
         self.driver = webdriver.Chrome(service=self.service)
         self.driver.get(f"https://ig.me/m/{user}")
-        while len(self.driver.find_elements(By.XPATH, "/html/body/div[2]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[3]/button[2]")) < 1:
+        while len(self.driver.find_elements(By.CLASS_NAME, "_a9--._a9_1")) < 1:
             continue
-        self.driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[3]/button[2]").click()
+        self.driver.find_element(By.CLASS_NAME, "_a9--._a9_1").click()
         self.wait = WebDriverWait(self.driver, 15)
 
     def BotStart(self) -> None: #Método para Iniciar o Bot.
-        msginput = self.driver.find_element(By.XPATH, '/html/body/div[2]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div/div[2]/div/section/div/div/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/textarea') # Obtem o elemento responsavel por mandar mensagens
+        msginput = self.driver.find_element(By.XPATH, '/html/body/div[2]/div/div/div[1]/div/div/div/div[1]/div[1]/div/div[2]/div/section/div/div/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/textarea') # Obtem o elemento responsavel por mandar mensagens
         messages_element = self.driver.find_elements(By.CLASS_NAME, "_acqu") # Obtem as mensagens do usuario alvo
         ignoreTxt = messages_element[-1].text if messages_element else "" # Condição para ignorar a ultima mensagem do usuario, assim evitando o Bot responder uma duvida que ja foi respondida.
         while True:
