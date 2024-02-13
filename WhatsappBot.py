@@ -70,7 +70,7 @@ if __name__ == "__main__":
     # phone_number = sys.argv[1]  # Obtém o número de telefone do destinatário da linha de comando
     # Api_key = sys.argv[2] # Obtém a API KEY da linha de comando
     Chatbot = ChatBot(API_KEY='test')
-    WhatsappBot = WhatsAppBotGPT(Number='553186624166', chatbot=Chatbot)
+    WhatsappBot = WhatsAppBotGPT(Number='number', chatbot=Chatbot)
     WhatsappBot.run()
 
 
